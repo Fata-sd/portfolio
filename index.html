@@ -25,16 +25,125 @@
         <div class="hero-content">
             <h2 class="animate">coucou ! je suis Fatah Sadoun</h2>
             <p class="animate">Développeur Web & Réseaux passionné par les nouvelles technologies, l’innovation et la création de solutions performantes. </p>
-            <a href="#projets" class="btn animate">mes projets</a>
-            <a href="#projets" class="btn animate">mon cursus</a>
+            
+            <!-- BOUTONS SUPERPOSÉS -->
+            <div class="btn-container">
+                <a href="#projets" class="btn animate">mes projets</a>
+                <a href="#projets" class="btn animate">mon cursus</a>
+            </div>
         </div>
     </section>
 
     <!-- À propos -->
-    <section id="apropos">
-        <h2 class="animate">À propos de moi</h2>
-        <p class="animate">Je développe des sites web modernes, responsives et interactifs avec HTML, CSS, JavaScript et les dernières technologies web.</p>
-    </section>
+  <section id="apropos" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-5xl">
+
+
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <!-- Photo -->
+            <div class="flex justify-center md:justify-end animate fade-in-left">
+                <div class="relative group">
+                    <img 
+                        src="Photos/moi.jpg" 
+                        alt="Fatah Sadoun" 
+                        class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full shadow-xl border-4 border-white 
+                               transition-transform duration-500 group-hover:scale-105"
+                    >
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-t from-black/20 to-transparent opacity-0 
+                                  group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+            </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12 animate fade-in">
+            À propos de moi
+        </h2>
+            <!-- Texte -->
+            <div class="space-y-6 text-gray-700 animate fade-in-right">
+                <p class="text-lg leading-relaxed">
+                    Je m’appelle <span class="font-semibold text-blue-600">Fatah Sadoun</span>, étudiant en 
+                    <strong>Master 2 Ingénierie et Innovation en Images et Réseaux</strong> à 
+                    <span class="italic">l’Université Sorbonne Paris Nord</span>.
+                </p>
+
+                <p class="text-lg leading-relaxed">
+                    Passionné par le <strong>développement web</strong> et les <strong>technologies réseau</strong>, 
+                    je m’efforce de concevoir des applications <span class="text-green-600 font-medium">fiables, performantes et bien structurées</span>.
+                </p>
+
+                <div class="bg-white p-5 rounded-lg shadow-md border-l-4 border-blue-500">
+                    <h3 class="font-semibold text-lg mb-3 text-gray-800">Compétences clés</h3>
+                    <ul class="space-y-2 text-base">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">▹</span>
+                            <strong>Développement full-stack Java EE</strong> (Servlets, JSP, RESTEasy, EJB 3, JPA/Hibernate)
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">▹</span>
+                            Gestion avancée de bases de données <strong>PostgreSQL</strong>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">▹</span>
+                            Conception complète : du back-end au déploiement
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="text-lg leading-relaxed">
+                    Autonome mais collaboratif, j’évolue avec plaisir dans des équipes où l’échange d’idées 
+                    nourrit l’innovation. Curieux et rigoureux, je cherche toujours à apprendre, expérimenter 
+                    et contribuer à des <span class="font-medium text-purple-600">projets concrets</span>.
+                </p>
+
+                <p class="text-lg leading-relaxed italic text-gray-600">
+                    En dehors du code, je pratique la <strong>randonnée</strong>, la <strong>musculation</strong> 
+                    et explore de nouveaux horizons — des activités qui m’aident à cultiver équilibre et motivation.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Styles CSS à ajouter dans ton <head> ou fichier CSS -->
+<style>
+    .animate {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-out;
+    }
+    .animate.fade-in { opacity: 1; transform: translateY(0); }
+    .animate.fade-in-left { animation: fadeInLeft 0.8s forwards; }
+    .animate.fade-in-right { animation: fadeInRight 0.8s forwards; }
+
+    @keyframes fadeInLeft {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Responsive ajustement photo sur mobile */
+    @media (max-width: 768px) {
+        .grid { grid-template-columns: 1fr; }
+        img { width: 200px !important; height: 200px !important; }
+    }
+</style>
+
+<!-- Optionnel : Activer les animations au scroll (avec Intersection Observer) -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll('.animate');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => observer.observe(el));
+    });
+</script>
 
     <!-- Projets -->
     <section id="projets">

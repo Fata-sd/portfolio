@@ -213,3 +213,56 @@ footer {
         font-size: 2.2rem;
     }
 }
+/* === SUPERPOSITION DES BOUTONS (à ajouter à la fin de ton style.css) === */
+.btn-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-container .btn {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Bouton principal (mes projets) */
+.btn-container .btn:first-child {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    backdrop-filter: blur(13px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    left: 2cm
+}
+
+/* Bouton secondaire (mon cursus) – superposé derrière */
+.btn-container .btn:last-child {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    backdrop-filter: blur(13px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    
+    top: 2cm;
+    right: 2.9cm
+
+ 
+}
+
+/* Effet au survol */
+.btn-container:hover .btn:first-child {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.btn-container:hover .btn:last-child {
+    transform: scale(0.97) translateY(-2px);
+}
